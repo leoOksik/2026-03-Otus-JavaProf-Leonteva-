@@ -1,9 +1,14 @@
-plugins {
-}
+allprojects {
+    apply(plugin = "java")
+    group = "ru.otus"
 
-group = "ru.otus"
-version = "1.0-SNAPSHOT"
+    repositories {
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
+    configure<JavaPluginExtension> {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(21))
+        }
+    }
 }
